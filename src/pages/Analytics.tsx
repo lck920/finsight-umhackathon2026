@@ -23,7 +23,8 @@ export default function Analytics() {
     if (_analyticsCache) return; // already loaded
     const fetchAnalytics = async () => {
       try {
-        const res = await fetch('/api/analytics');
+        const API_URL = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_URL}/api/analytics`);
         const json = await res.json();
         _analyticsCache = json;
         setData(json);

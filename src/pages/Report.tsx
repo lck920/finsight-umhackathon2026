@@ -13,7 +13,8 @@ export default function Report() {
     if (_reportCache) return; // already loaded
     const fetchReport = async () => {
       try {
-        const res = await fetch('/api/report');
+        const API_URL = import.meta.env.VITE_API_URL || '';
+        const res = await fetch(`${API_URL}/api/report`);
         const data = await res.json();
         _reportCache = data;
         setReportData(data);

@@ -19,10 +19,11 @@ export default function Expenses() {
   });
 
   const fetchTransactions = async () => {
+    const API_URL = import.meta.env.VITE_API_URL || '';
     try {
       const [txRes, analyticsRes] = await Promise.all([
-        fetch('/api/transactions'),
-        fetch('/api/analytics'),
+        fetch(`${API_URL}/api/transactions`),
+        fetch(`${API_URL}/api/analytics`),
       ]);
       const txData = await txRes.json();
       const analyticsData = await analyticsRes.json();
@@ -54,7 +55,7 @@ export default function Expenses() {
       formData.append('file', file);
       
       try {
-        await fetch('/api/transactions/upload', {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/transactions/upload`, {
           method: 'POST',
           body: formData,
         });
@@ -69,7 +70,7 @@ export default function Expenses() {
 
   const handleManualSubmit = async () => {
     try {
-      await fetch('/api/transactions', {
+      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,7 +88,7 @@ export default function Expenses() {
 
   const handleCategoryChange = async (id: number, newCategory: string) => {
     try {
-      await fetch(`/api/transactions/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/transactions/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ category: newCategory }),
