@@ -1,13 +1,13 @@
-// server/glm.js — Central GLM client for FinSight
-// All three GLM calls live here. If GLM_API_KEY is missing, everything fails loudly.
+// server/glm.js — Central AI client for FinSight (Groq backend)
+// All three GLM calls live here. If GROQ_API_KEY is missing, everything fails loudly.
 
-const GLM_BASE_URL = 'https://api.ilmu.ai/v1/chat/completions';
-const GLM_MODEL = 'ilmu-glm-5.1';
+const GLM_BASE_URL = 'https://api.groq.com/openai/v1/chat/completions';
+const GLM_MODEL = 'llama-3.3-70b-versatile';
 
 function requireApiKey() {
-  const key = process.env.GLM_API_KEY;
-  if (!key || key.trim() === '' || key === 'your_zhipu_api_key_here') {
-    throw new Error('GLM_API_KEY is not configured. Set it in your .env file.');
+  const key = process.env.GROQ_API_KEY;
+  if (!key || key.trim() === '') {
+    throw new Error('GROQ_API_KEY is not configured. Set it in your .env file.');
   }
   return key;
 }

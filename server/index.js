@@ -2,8 +2,8 @@ import dotenv from 'dotenv';
 import { fileURLToPath as _ftu } from 'url';
 import { dirname as _dn, join as _jn } from 'path';
 dotenv.config({ path: _jn(_dn(_ftu(import.meta.url)), '..', '.env') }); // load .env from project root
-const _key = process.env.GLM_API_KEY;
-console.log('[ENV] GLM_API_KEY loaded:', _key ? `${_key.substring(0, 8)}...` : 'NOT FOUND');
+const _key = process.env.GROQ_API_KEY;
+console.log('[ENV] GROQ_API_KEY loaded:', _key ? `${_key.substring(0, 8)}...` : 'NOT FOUND');
 import express from 'express';
 import cors from 'cors';
 import multer from 'multer';
