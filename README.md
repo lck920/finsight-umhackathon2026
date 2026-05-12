@@ -1,7 +1,5 @@
 # 💡 FinSight — AI-Powered Business Expense Optimisation
 
-https://drive.google.com/file/d/1qJNOFNG033ngJsQ2LiCZYsGF9IgM9MP9/view?usp=sharing
-
 https://umhackathon-chi.vercel.app/
 
 > Built for **UMHackathon 2026** — Domain 2: AI for Economic Empowerment & Decision Intelligence
